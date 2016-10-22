@@ -95,7 +95,7 @@ class FoodExplorer {
                                         }
                                     }
 
-                                    print(venueInfo)
+                                    //print(venueInfo)
                                     //let localreview = venueInfo[""]
 
                                     fvResponseList.append(FoodVenue(name: name, detail: "", thumbsdown: false, imagePath: imageURL, localReview: "", rating: rating, distance: distance))

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		219F11FBD53141620B9165BB /* Pods_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB8EBFBDF20EF722A0EB2B6 /* Pods_test.framework */; };
+		E10BF38C1DBB437D00463CE4 /* VenueDetailContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10BF38B1DBB437D00463CE4 /* VenueDetailContainerViewController.swift */; };
 		E11FB7AE1DB777A90035D677 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FB7AD1DB777A90035D677 /* AppDelegate.swift */; };
 		E11FB7B01DB777A90035D677 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11FB7AF1DB777A90035D677 /* ViewController.swift */; };
 		E11FB7B31DB777A90035D677 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E11FB7B11DB777A90035D677 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		060C1268AAF38A041E4A0E8F /* Pods-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.release.xcconfig"; path = "Pods/Target Support Files/Pods-test/Pods-test.release.xcconfig"; sourceTree = "<group>"; };
 		2DB8EBFBDF20EF722A0EB2B6 /* Pods_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58C99FAD45CC05BABD3B2826 /* Pods-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-test/Pods-test.debug.xcconfig"; sourceTree = "<group>"; };
+		E10BF38B1DBB437D00463CE4 /* VenueDetailContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDetailContainerViewController.swift; sourceTree = "<group>"; };
 		E11FB7AA1DB777A90035D677 /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11FB7AD1DB777A90035D677 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E11FB7AF1DB777A90035D677 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,8 +100,8 @@
 			children = (
 				E1B15D951DB87FE70049356C /* Model */,
 				E17B93561DBAAAB100B827A9 /* ViewController */,
-				E17B93581DBAAAD000B827A9 /* Config */,
 				E17B93571DBAAAC000B827A9 /* Assets */,
+				E17B93581DBAAAD000B827A9 /* Config */,
 				E17B93591DBAAADC00B827A9 /* Bootstrappers */,
 			);
 			path = test;
@@ -110,6 +112,7 @@
 			children = (
 				E11FB7AF1DB777A90035D677 /* ViewController.swift */,
 				E17B935A1DBAAB4400B827A9 /* VenueDetailViewController.swift */,
+				E10BF38B1DBB437D00463CE4 /* VenueDetailContainerViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				E1B15D991DB880F40049356C /* FoodVenue.swift in Sources */,
 				E1B15DA41DB884F10049356C /* FoodExplorer.swift in Sources */,
 				E11FB7AE1DB777A90035D677 /* AppDelegate.swift in Sources */,
+				E10BF38C1DBB437D00463CE4 /* VenueDetailContainerViewController.swift in Sources */,
 				E1B15D9F1DB8828E0049356C /* FoodVenue+CoreDataClass.swift in Sources */,
 				E1B15D9C1DB881580049356C /* FoodData.xcdatamodeld in Sources */,
 				E1B15DAA1DB88B560049356C /* ModelResponse.swift in Sources */,

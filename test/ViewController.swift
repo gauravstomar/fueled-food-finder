@@ -78,6 +78,33 @@ class ViewController: UIViewController {
     }
     
     
+    // MARK: - Segue Operations
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "detailContainerSegue" {
+            
+            
+            guard let cell = sender as? UICollectionViewCell else {
+                return
+            }
+            
+            guard let indexPath = listingCollectionView.indexPathForCell(cell) else {
+                return
+            }
+            
+            guard let venue = venueItems?[indexPath.row] else {
+                return
+            }
+            
+            
+            let venueDetailController = segue.destinationViewController as! VenueDetailContainerViewController
+            venueDetailController.venueDetail = venue
+            
+            
+        }
+        
+    }
+
 }
 
 
@@ -158,7 +185,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 
-        performSegueWithIdentifier("detailViewSegue", sender: self)
+        performSegueWithIdentifier("detailContainerSegue", sender: self)
 
     }
     
