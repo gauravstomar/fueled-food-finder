@@ -42,7 +42,7 @@ class ReviewViewController: UIViewController {
     
     func keyboardUpdated(notification: NSNotification) {
         
-        UIView.animateWithDuration(0.1, animations: {
+        UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
             
             if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
                 self.popupBottom.constant = keyboardSize.height + 50

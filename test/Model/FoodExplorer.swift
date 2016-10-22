@@ -6,10 +6,11 @@
 //  Copyright © 2016 Gaurav Singh. All rights reserved.
 //
 
+import CoreData
+import CoreStore
 import Foundation
 import CoreLocation
 import QuadratTouch
-import CoreStore
 
 
 
@@ -85,7 +86,7 @@ class FoodExplorer {
                                         }
                                     }
                                     
-                                    let id = venueInfo["id"] as? String
+                                    let id = venueInfo["id"] as! String
                                     let name = venueInfo["name"] as? String
                                     let rating = venueInfo["rating"] as? Int
                                     var distance = "N/A"
@@ -96,10 +97,7 @@ class FoodExplorer {
                                         }
                                     }
 
-                                    //print(venueInfo)
-                                    //let localreview = venueInfo[""]
-
-                                    fvResponseList.append(FoodVenue(id: id, name: name, detail: "", thumbsdown: false, imagePath: imageURL, localReview: "", rating: rating, distance: distance))
+                                    fvResponseList.append(FoodVenue(id: id, name: name, imagePath: imageURL, rating: rating, distance: distance, verbose: venueInfo))
 
                                 }
                             }
@@ -132,7 +130,7 @@ class FoodExplorer {
     
     
     
-    func addReviewToVenue(review: String, venueId: String) {
+    func addReviewToVenue(review: String, venueId: String, complition: (VenueReviewResponse -> Void)) {
         
         print(venueId)
         
@@ -144,21 +142,29 @@ class FoodExplorer {
             
             } else {
 
-                let fvMO = FoodVenueMO()
+                let fvMO = transaction.create(Into(FoodVenueMO))
                 fvMO.venueId = venueId
                 fvMO.localReview = review
 
             }
 
-            transaction.commit()
-            
+            transaction.commit { (result) in
+                switch result {
+                case .Success(let hasChanges):
+                    complition(VenueReviewResponse(type: ResponseType.success))
+                    print(hasChanges)
+                case .Failure(let error):
+                    complition(VenueReviewResponse(type: ResponseType.failure))
+                    print(error)
+                }
+            }
         }
         
     }
     
     
     
-    func addThumbsDownToVenue(thumb: Bool, venueId: String) {
+    func addThumbsDownToVenue(thumb: Bool, venueId: String, complition: (VenueReviewResponse -> Void)) {
 
         print(venueId)
 
@@ -170,14 +176,23 @@ class FoodExplorer {
                 
             } else {
                 
-                let fvMO = FoodVenueMO()
-                fvMO.venueId = venueId
+                
+                let fvMO = transaction.create(Into(FoodVenueMO))
                 fvMO.thumbsDown = thumb
+                fvMO.venueId = venueId
                 
             }
             
-            transaction.commit()
-            
+            transaction.commit { (result) in
+                switch result {
+                case .Success(let hasChanges):
+                    complition(VenueReviewResponse(type: ResponseType.success))
+                    print(hasChanges)
+                case .Failure(let error):
+                    complition(VenueReviewResponse(type: ResponseType.failure))
+                    print(error)
+                }
+            }
         }
     }
 
@@ -193,13 +208,13 @@ class FoodExplorer {
     }
 
     
-    private func reviewOfVenue(venueId: String) -> String? {
+    private func reviewOfVenue(venueId: String) -> String {
     
         guard let fvMO = CoreStore.fetchOne(From(FoodVenueMO), Where("venueId = %@", venueId)) else {
-            return nil
+            return ""
         }
         
-        return fvMO.localReview
+        return ( fvMO.localReview != nil ? fvMO.localReview! : "" )
         
     }
     

@@ -12,15 +12,16 @@ import UIKit
 
 
 class VenueDetailViewController: UIViewController {
-    
-    
+
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ratingsLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var thumbsDownButton: UIButton!
-
+    @IBOutlet weak var verboseTextView: UITextView!
+    @IBOutlet weak var verboseTextHeight: NSLayoutConstraint!
+    
     
     var container: VenueDetailContainerViewController!
 
@@ -48,6 +49,10 @@ class VenueDetailViewController: UIViewController {
     
         let venue = container.venueDetail
         
+
+       // self.thumbsDownButton.alpha = ( venue.thumbsdown ? 0.25 : 1 )
+
+        
         if let url = NSURL(string: venue.imagePath!) where venue.imagePath != nil {
             
             let placeholderImage = UIImage(named: "foodPlaceholder")
@@ -64,9 +69,12 @@ class VenueDetailViewController: UIViewController {
             
             nameLabel.text = venue.name
             ratingsLabel.text = "🚖\( venue.distance ) away"
-            distanceLabel.text = "⭐️\( venue.rating != nil ? "\(venue.rating!)" : "N/A" )"
+            distanceLabel.text = "⭐️\( venue.rating != nil ? "\(venue.rating!)/10 Ratings" : "N/A" )"
 
 
+            
+            verboseTextHeight.constant = verboseTextView.sizeThatFits(verboseTextView.bounds.size).height
+            
         }
 
     }

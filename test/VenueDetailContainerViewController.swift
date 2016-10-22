@@ -13,7 +13,27 @@ class VenueDetailContainerViewController: UIViewController, UIScrollViewDelegate
 
     
     var venueDetail: FoodVenue!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
 
+    
+    
+    
+    override func viewDidLoad() {
+        
+        scrollView.alpha = 0
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        UIView.animateWithDuration(0.5) {
+            self.scrollView.alpha = 1
+        }
+        
+    }
+    
+    
     func scrollViewDidScroll(scrollView: UIScrollView) {
 
         if scrollView.contentOffset.y < -99 {

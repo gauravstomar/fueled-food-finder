@@ -18,13 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
        
-        do {
-            
-            try CoreStore.addStorageAndWait(LegacySQLiteStore())
-            
-        } catch {
-            // ...
-        }
+        try! CoreStore.addStorageAndWait(SQLiteStore)
+
+        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        print("Path for document directory: \(paths[0])")
 
         return true
     }

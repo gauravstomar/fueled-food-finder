@@ -199,11 +199,12 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
 extension ViewController: CLLocationManagerDelegate {
 
     
-    func locationManager(manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-
-        locationManagerDidUpdatedStatus(status)
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         
+        locationManagerDidUpdatedStatus(status)
+
     }
+    
     
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
@@ -241,7 +242,12 @@ extension ViewController: CLLocationManagerDelegate {
             self.locationManager.startUpdatingLocation()
             print("AuthorizedWhenInUse or AuthorizedAlways")
         default:
-            print("ShowNoPermissionsAlert")
+            print("No Permissions//Showing Fueled Collective Nearby")
+            FoodFacade.exploreVenues(by: CLLocation(latitude: 40.72428, longitude: -73.9973532), complition: { response in
+                self.initialViewAdjustment()
+                self.venueItems = response.list
+                self.listingCollectionView.reloadData()
+            })
         }
 
     }

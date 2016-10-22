@@ -14,24 +14,20 @@ import Foundation
 public class FoodVenue {
     
     var id: String!
-    var name: String?
-    var detail: String?
-    var thumbsdown: Bool
-    var imagePath: String?
-    var localReview: String?
     var rating: Int?
+    var name: String?
+    var imagePath: String?
     var distance: String!
+    var verbose: AnyObject?
     
-    init(id: String!, name: String?, detail: String?, thumbsdown: Bool, imagePath: String?, localReview: String?, rating: Int?, distance: String!) {
-
+    init(id: String!, name: String?, imagePath: String?, rating: Int?, distance: String!, verbose: AnyObject?) {
+        
         self.id = id
         self.name = name
-        self.detail = detail
-        self.thumbsdown = thumbsdown
         self.imagePath = imagePath
-        self.localReview = localReview
         self.rating = rating
         self.distance = distance
+        self.verbose = verbose
         
     }
     
