@@ -14,6 +14,7 @@
 		E11FB7B31DB777A90035D677 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E11FB7B11DB777A90035D677 /* Main.storyboard */; };
 		E11FB7B51DB777A90035D677 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E11FB7B41DB777A90035D677 /* Assets.xcassets */; };
 		E11FB7B81DB777A90035D677 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E11FB7B61DB777A90035D677 /* LaunchScreen.storyboard */; };
+		E14C7FD81DBB664D003F6C79 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C7FD71DBB664D003F6C79 /* ReviewViewController.swift */; };
 		E17B935B1DBAAB4400B827A9 /* VenueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17B935A1DBAAB4400B827A9 /* VenueDetailViewController.swift */; };
 		E1B15D971DB8802B0049356C /* FoodFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B15D961DB8802B0049356C /* FoodFacade.swift */; };
 		E1B15D991DB880F40049356C /* FoodVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B15D981DB880F40049356C /* FoodVenue.swift */; };
@@ -36,6 +37,7 @@
 		E11FB7B71DB777A90035D677 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E11FB7B91DB777A90035D677 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E130FB5F1DB78E8A003ED43C /* Quadrat.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quadrat.framework; path = ../../Downloads/Quadrat.framework; sourceTree = "<group>"; };
+		E14C7FD71DBB664D003F6C79 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		E17B935A1DBAAB4400B827A9 /* VenueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDetailViewController.swift; sourceTree = "<group>"; };
 		E1B15D961DB8802B0049356C /* FoodFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodFacade.swift; sourceTree = "<group>"; };
 		E1B15D981DB880F40049356C /* FoodVenue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodVenue.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				E11FB7AF1DB777A90035D677 /* ViewController.swift */,
 				E17B935A1DBAAB4400B827A9 /* VenueDetailViewController.swift */,
 				E10BF38B1DBB437D00463CE4 /* VenueDetailContainerViewController.swift */,
+				E14C7FD71DBB664D003F6C79 /* ReviewViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				E1B15DA41DB884F10049356C /* FoodExplorer.swift in Sources */,
 				E11FB7AE1DB777A90035D677 /* AppDelegate.swift in Sources */,
 				E10BF38C1DBB437D00463CE4 /* VenueDetailContainerViewController.swift in Sources */,
+				E14C7FD81DBB664D003F6C79 /* ReviewViewController.swift in Sources */,
 				E1B15D9F1DB8828E0049356C /* FoodVenue+CoreDataClass.swift in Sources */,
 				E1B15D9C1DB881580049356C /* FoodData.xcdatamodeld in Sources */,
 				E1B15DAA1DB88B560049356C /* ModelResponse.swift in Sources */,

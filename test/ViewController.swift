@@ -112,7 +112,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
     
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        
         return 1
+        
     }
     
     
@@ -185,7 +187,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 
-        performSegueWithIdentifier("detailContainerSegue", sender: self)
+        dispatch_async(dispatch_get_main_queue()) { 
+            self.performSegueWithIdentifier("detailContainerSegue", sender: self)
+        }
 
     }
     

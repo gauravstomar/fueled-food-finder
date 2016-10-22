@@ -19,12 +19,22 @@ class VenueDetailViewController: UIViewController {
     @IBOutlet weak var ratingsLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var thumbsDownButton: UIButton!
 
     
     var container: VenueDetailContainerViewController!
 
     
+    @IBAction func reviewAction(sender: AnyObject) {
+
+        container.addReviewAction()
+        
+    }
     
+    @IBAction func thumbsDownAction(sender: AnyObject) {
+
+        
+    }
     
     override func viewDidAppear(animated: Bool) {
         
