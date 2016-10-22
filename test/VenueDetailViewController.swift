@@ -33,6 +33,13 @@ class VenueDetailViewController: UIViewController {
     
     @IBAction func thumbsDownAction(sender: AnyObject) {
 
+        FoodFacade.addThumbsDown(toVenue: container.venueDetail.id) { (_) in
+
+            UIView.animateWithDuration(0.25, animations: { 
+                self.thumbsDownButton.alpha = 0.25
+            })
+
+        }
         
     }
     

@@ -160,6 +160,8 @@ class FoodExplorer {
     
     func addThumbsDownToVenue(thumb: Bool, venueId: String) {
 
+        print(venueId)
+
         CoreStore.beginAsynchronous { (transaction) in
             
             if let fvMO = transaction.fetchOne(From(FoodVenueMO), Where("venueId = %@", venueId)) {
