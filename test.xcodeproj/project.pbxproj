@@ -18,7 +18,7 @@
 		E17B935B1DBAAB4400B827A9 /* VenueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17B935A1DBAAB4400B827A9 /* VenueDetailViewController.swift */; };
 		E1B15D971DB8802B0049356C /* FoodFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B15D961DB8802B0049356C /* FoodFacade.swift */; };
 		E1B15D991DB880F40049356C /* FoodVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B15D981DB880F40049356C /* FoodVenue.swift */; };
-		E1B15D9C1DB881580049356C /* FoodData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1B15D9A1DB881580049356C /* FoodData.xcdatamodeld */; };
+		E1B15D9C1DB881580049356C /* test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1B15D9A1DB881580049356C /* test.xcdatamodeld */; };
 		E1B15D9F1DB8828E0049356C /* FoodVenue+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B15D9D1DB8828E0049356C /* FoodVenue+CoreDataClass.swift */; };
 		E1B15DA41DB884F10049356C /* FoodExplorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B15DA31DB884F10049356C /* FoodExplorer.swift */; };
 		E1B15DAA1DB88B560049356C /* ModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B15DA91DB88B560049356C /* ModelResponse.swift */; };
@@ -41,7 +41,7 @@
 		E17B935A1DBAAB4400B827A9 /* VenueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDetailViewController.swift; sourceTree = "<group>"; };
 		E1B15D961DB8802B0049356C /* FoodFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodFacade.swift; sourceTree = "<group>"; };
 		E1B15D981DB880F40049356C /* FoodVenue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodVenue.swift; sourceTree = "<group>"; };
-		E1B15D9B1DB881580049356C /* FoodData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodData.xcdatamodel; sourceTree = "<group>"; };
+		E1B15D9B1DB881580049356C /* test.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = test.xcdatamodel; sourceTree = "<group>"; };
 		E1B15D9D1DB8828E0049356C /* FoodVenue+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FoodVenue+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E1B15DA31DB884F10049356C /* FoodExplorer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodExplorer.swift; sourceTree = "<group>"; };
 		E1B15DA71DB886CB0049356C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -169,7 +169,7 @@
 		E1B15DA21DB882B80049356C /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				E1B15D9A1DB881580049356C /* FoodData.xcdatamodeld */,
+				E1B15D9A1DB881580049356C /* test.xcdatamodeld */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -315,7 +315,7 @@
 				E10BF38C1DBB437D00463CE4 /* VenueDetailContainerViewController.swift in Sources */,
 				E14C7FD81DBB664D003F6C79 /* ReviewViewController.swift in Sources */,
 				E1B15D9F1DB8828E0049356C /* FoodVenue+CoreDataClass.swift in Sources */,
-				E1B15D9C1DB881580049356C /* FoodData.xcdatamodeld in Sources */,
+				E1B15D9C1DB881580049356C /* test.xcdatamodeld in Sources */,
 				E1B15DAA1DB88B560049356C /* ModelResponse.swift in Sources */,
 				E1B15D971DB8802B0049356C /* FoodFacade.swift in Sources */,
 			);
@@ -496,13 +496,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E1B15D9A1DB881580049356C /* FoodData.xcdatamodeld */ = {
+		E1B15D9A1DB881580049356C /* test.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E1B15D9B1DB881580049356C /* FoodData.xcdatamodel */,
+				E1B15D9B1DB881580049356C /* test.xcdatamodel */,
 			);
-			currentVersion = E1B15D9B1DB881580049356C /* FoodData.xcdatamodel */;
-			path = FoodData.xcdatamodeld;
+			currentVersion = E1B15D9B1DB881580049356C /* test.xcdatamodel */;
+			path = test.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

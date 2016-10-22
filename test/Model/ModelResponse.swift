@@ -19,15 +19,21 @@ enum ResponseType {
 public class ModelResponse {
 
     var type: ResponseType
+    var errorMessage: String?
     
     init(type: ResponseType) {
         self.type = type
+        self.errorMessage = nil
     }
 
 }
 
 
 
+
+public class VenueReviewResponse: ModelResponse {
+
+}
 
 public class FoodVenueResponse: ModelResponse {
     

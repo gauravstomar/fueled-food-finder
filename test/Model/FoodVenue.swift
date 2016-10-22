@@ -13,6 +13,7 @@ import Foundation
 
 public class FoodVenue {
     
+    var id: String!
     var name: String?
     var detail: String?
     var thumbsdown: Bool
@@ -21,8 +22,9 @@ public class FoodVenue {
     var rating: Int?
     var distance: String!
     
-    init(name: String?, detail: String?, thumbsdown: Bool, imagePath: String?, localReview: String?, rating: Int?, distance: String!) {
+    init(id: String!, name: String?, detail: String?, thumbsdown: Bool, imagePath: String?, localReview: String?, rating: Int?, distance: String!) {
 
+        self.id = id
         self.name = name
         self.detail = detail
         self.thumbsdown = thumbsdown

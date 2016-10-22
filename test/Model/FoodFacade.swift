@@ -19,6 +19,13 @@ class FoodFacade {
         foodExplorer.findVenuesByLocation(location, complition: complition)
     }
 
+    static func addReview(toVenue venueId: String, review: String, complition: (VenueReviewResponse -> Void)) {
+        foodExplorer.addReviewToVenue(review, venueId: venueId)
+    }
+    
+    static func addThumbsDown(toVenue venueId: String, complition: (VenueReviewResponse -> Void)) {
+        foodExplorer.addThumbsDownToVenue(false, venueId: venueId)
+    }
 
 }
 

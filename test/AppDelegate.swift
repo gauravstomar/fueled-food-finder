@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreStore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
@@ -17,6 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
        
+        do {
+            
+            try CoreStore.addStorageAndWait(LegacySQLiteStore())
+            
+        } catch {
+            // ...
+        }
 
         return true
     }

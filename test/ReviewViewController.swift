@@ -67,7 +67,6 @@ class ReviewViewController: UIViewController {
         UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
     
             self.popupWidth.constant += 120
-            self.popupBottom.constant += 0
             self.popupView.layoutIfNeeded()
             
             }) { (_) in
@@ -83,8 +82,16 @@ class ReviewViewController: UIViewController {
     
     @IBAction func doneAction(sender: AnyObject) {
         
-        closeView()
-        
+        FoodFacade.addReview(toVenue: container.venueDetail.id, review: textView.text) { (response) in
+            
+            if response.type == .success {
+                self.closeView()
+            } else {
+                
+            }
+            
+        }
+
     }
     
     @IBAction func cancleAction(sender: AnyObject) {
@@ -110,3 +117,6 @@ class ReviewViewController: UIViewController {
     
     
 }
+
+
+

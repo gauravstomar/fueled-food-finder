@@ -85,6 +85,7 @@ class FoodExplorer {
                                         }
                                     }
                                     
+                                    let id = venueInfo["id"] as? String
                                     let name = venueInfo["name"] as? String
                                     let rating = venueInfo["rating"] as? Int
                                     var distance = "N/A"
@@ -98,7 +99,7 @@ class FoodExplorer {
                                     //print(venueInfo)
                                     //let localreview = venueInfo[""]
 
-                                    fvResponseList.append(FoodVenue(name: name, detail: "", thumbsdown: false, imagePath: imageURL, localReview: "", rating: rating, distance: distance))
+                                    fvResponseList.append(FoodVenue(id: id, name: name, detail: "", thumbsdown: false, imagePath: imageURL, localReview: "", rating: rating, distance: distance))
 
                                 }
                             }
@@ -131,7 +132,9 @@ class FoodExplorer {
     
     
     
-    private func addReviewToVenue(review: String, venueId: String) {
+    func addReviewToVenue(review: String, venueId: String) {
+        
+        print(venueId)
         
         CoreStore.beginAsynchronous { (transaction) in
             
@@ -155,7 +158,7 @@ class FoodExplorer {
     
     
     
-    private func addThumbsDownToVenue(thumb: Bool, venueId: String) {
+    func addThumbsDownToVenue(thumb: Bool, venueId: String) {
 
         CoreStore.beginAsynchronous { (transaction) in
             
