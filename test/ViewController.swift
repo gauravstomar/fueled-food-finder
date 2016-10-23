@@ -175,7 +175,11 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        let m: CGFloat = UIDevice.currentDevice().orientation.isLandscape.boolValue ? 0.333 : 0.5
+        var m: CGFloat = UIDevice.currentDevice().orientation.isLandscape.boolValue ? 0.25 : 0.333
+        
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            m = UIDevice.currentDevice().orientation.isLandscape.boolValue ? 0.333 : 0.5
+        }
         
         let w = (collectionView.bounds.width * m) - 15
         let h = w * 1
