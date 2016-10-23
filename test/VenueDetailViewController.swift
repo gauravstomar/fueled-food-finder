@@ -19,12 +19,11 @@ class VenueDetailViewController: UIViewController {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var thumbsDownButton: UIButton!
-    @IBOutlet weak var verboseTextView: UITextView!
-    @IBOutlet weak var verboseTextHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var verboseTableView: UITableView!
     
     var container: VenueDetailContainerViewController!
-
+    private var verboseListings = [VenueListingGroup]()
     
     @IBAction func reviewAction(sender: AnyObject) {
 
@@ -41,6 +40,12 @@ class VenueDetailViewController: UIViewController {
             })
 
         }
+        
+    }
+    
+    override func viewDidLoad() {
+        
+        verboseTableView.backgroundColor = UIColor.clearColor()
         
     }
     
@@ -82,13 +87,112 @@ class VenueDetailViewController: UIViewController {
         ratingsLabel.text = "🚖\( venue.distance ) away"
         distanceLabel.text = "⭐️\( venue.rating != nil ? "\(venue.rating!)/10 Ratings" : "N/A" )"
 
-        verboseTextHeight.constant = verboseTextView.sizeThatFits(verboseTextView.bounds.size).height
 
+        let localReview = venue.localReview?.characters.count > 0 ? venue.localReview : "N/A"
+        verboseListings.append(VenueListingGroup(title: "My Review", rows: [VenueListingItem(title: localReview)]))
+        verboseListings.append(VenueListingGroup(title: "Address", rows: [VenueListingItem(title: venue.formattedAddress)]))
+        verboseListings.append(VenueListingGroup(title: "URL", rows: [VenueListingItem(title: venue.url)]))
+        verboseListings.append(VenueListingGroup(title: "Categories", rows: [VenueListingItem(title: venue.categories)]))
+        verboseListings.append(VenueListingGroup(title: "Here now", rows: [VenueListingItem(title: venue.hereNow)]))
+        verboseListings.append(VenueListingGroup(title: "Verified", rows: [VenueListingItem(title: (venue.verified ? "✔︎ Verified" : "✘ Not Verified"))]))
+
+        verboseTableView.reloadData()
+    
     }
     
     
     
 }
+
+
+extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource {
+
+
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+
+        return verboseListings.count
+        
+    }
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return verboseListings[section].rows.count
+
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("VenueDetailCell", forIndexPath: indexPath) as! VenueDetailCell
+        
+        let obj = verboseListings[indexPath.section].rows[indexPath.row]
+        
+        cell.detailLabel.text = obj.title
+        cell.selectionStyle = .None
+        
+        return cell
+        
+    }
+
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 50.0
+    }
+    
+
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return verboseListings[section].title
+    }
+    
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+
+        if let headerView = view as? UITableViewHeaderFooterView, let textLabel = headerView.textLabel {
+            textLabel.font = UIFont.systemFontOfSize(12, weight: UIFontWeightUltraLight)
+            headerView.backgroundView?.backgroundColor = UIColor.clearColor()
+            headerView.contentView.backgroundColor = UIColor.clearColor()
+            textLabel.textColor = UIColor.whiteColor()
+        }
+        
+    }
+    
+
+
+}
+
+
+
+class VenueDetailCell: UITableViewCell {
+
+    @IBOutlet weak var detailLabel: UILabel!
+}
+
+
+private class VenueListingGroup {
+    
+    var title: String?
+    var rows: [VenueListingItem]!
+    
+    init(title: String?, rows: [VenueListingItem]) {
+        self.title = title
+        self.rows = rows
+    }
+}
+
+
+private class VenueListingItem {
+    var title: String?
+    
+    init(title: String?) {
+        self.title = title
+    }
+}
+
 
 
 

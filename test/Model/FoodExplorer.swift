@@ -142,27 +142,55 @@ class FoodExplorer {
             
             if let featuredPhotos = venueInfo["featuredPhotos"] as? [String: AnyObject] {
                 if let imgItems = featuredPhotos["items"] as? [[String: AnyObject]] where imgItems.first != nil {
-                    if let prefix = imgItems.first!["prefix"] as? String , let suffix = imgItems.first!["suffix"] as? String, let height = imgItems.first!["height"] as? String , let width = imgItems.first!["width"] as? String {
+                    
+                    if let prefix = imgItems.first!["prefix"] as? String,
+                        let suffix = imgItems.first!["suffix"] as? String,
+                        let height = imgItems.first!["height"] as? Int,
+                        let width = imgItems.first!["width"] as? Int {
 
                         foodVenueDetails.fullImagePath = prefix + "\(width)x\(height)" + suffix
                         
                     }
                 }
             }
-
+            
             if let location = venueInfo["location"] as? [String: AnyObject] {
-                if let distanceRaw = location["distance"] as? Int {
-                    //distance = distanceRaw < 1000 ? "\(distanceRaw) m" :  "\(distanceRaw/1000) km"
+                if let addressRaw = location["formattedAddress"] as? [String] {
+                    foodVenueDetails.formattedAddress = addressRaw.joinWithSeparator(", ")
                 }
             }
             
             
+            
+            if let categories = venueInfo["categories"] as? [[String: AnyObject]] {
+                var formattedCategory = [String]()
+                for category in categories {
+                    if let categoryRaw = category["name"] as? String {
+                        formattedCategory.append(categoryRaw)
+                    }
+                }
+                foodVenueDetails.categories = formattedCategory.joinWithSeparator(", ")
+            }
+            
+            
+            
+            if let url = venueInfo["url"] as? String {
+                foodVenueDetails.url = url
+            } else {
+                foodVenueDetails.url = "N/A"
+            }
+            
+            if let verified = venueInfo["verified"] as? Int {
+                foodVenueDetails.verified = (verified != 0)
+            }
+
+            if let hereNow = venueInfo["hereNow"] as? [String: AnyObject] {
+                foodVenueDetails.hereNow = hereNow["summary"] as? String
+            } else {
+                foodVenueDetails.hereNow = "N/A"
+            }
+            
         }
-
-        
-        
-        //foodVenueDetails.formattedAddress =
-
 
         fvResponse.details = foodVenueDetails
         

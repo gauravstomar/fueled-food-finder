@@ -37,12 +37,17 @@ public class FoodVenue {
 public class FoodVenueDetails: FoodVenue {
 
     var thumbsdown: Bool
+    var verified: Bool
     var localReview: String?
     var formattedAddress: String?
     var fullImagePath: String?
+    var url: String?
+    var categories: String?
+    var hereNow: String?
 
     init(withFoodVenue venue:FoodVenue) {
 
+        self.verified = false
         self.thumbsdown = false
         super.init(id: venue.id, name: venue.name, thumbImagePath: venue.thumbImagePath, rating: venue.rating, distance: venue.distance, verbose: venue.verbose)
 
