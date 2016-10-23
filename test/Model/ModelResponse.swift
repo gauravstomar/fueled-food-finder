@@ -13,6 +13,7 @@ enum ResponseType {
     case success
     case failure
     case networkError
+    case unknownError
 }
 
 
@@ -29,11 +30,10 @@ public class ModelResponse {
 }
 
 
-
-
 public class VenueReviewResponse: ModelResponse {
 
 }
+
 
 public class FoodVenueResponse: ModelResponse {
     
@@ -42,3 +42,8 @@ public class FoodVenueResponse: ModelResponse {
 }
 
 
+public class FoodVenueDetailsResponse: ModelResponse {
+
+    var details: FoodVenueDetails?
+
+}

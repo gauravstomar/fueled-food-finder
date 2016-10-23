@@ -15,7 +15,7 @@ class FoodFacade {
     
     private static var foodExplorer = FoodExplorer()
     
-    static func exploreVenues(by location: CLLocation, complition: (FoodVenueResponse -> Void)) {
+    static func explore(venuesByLocation location: CLLocation, complition: (FoodVenueResponse -> Void)) {
         foodExplorer.findVenuesByLocation(location, complition: complition)
     }
 
@@ -24,12 +24,13 @@ class FoodFacade {
     }
     
     static func addThumbsDown(toVenue venueId: String, complition: (VenueReviewResponse -> Void)) {
-        foodExplorer.addThumbsDownToVenue(false, venueId: venueId, complition: complition)
+        foodExplorer.addThumbsDownToVenue(true, venueId: venueId, complition: complition)
     }
     
-    
-    
-    
+    static func detail(ofVenue venue: FoodVenue, complition: (FoodVenueDetailsResponse -> Void)) {
+        foodExplorer.venueDetails(venue, complition: complition)
+    }
+
 }
 
 

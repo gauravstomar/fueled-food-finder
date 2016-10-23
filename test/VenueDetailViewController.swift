@@ -45,15 +45,25 @@ class VenueDetailViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        
+
+        FoodFacade.detail(ofVenue: container.venueDetail) { (response) in
+            
+            if let venue = response.details {
+                self.updateVenueDetais(venue)
+            } else {
+                return
+            }
+
+        }
+
+    }
     
-        let venue = container.venueDetail
-        
+    
+    func updateVenueDetais(venue: FoodVenueDetails!) {
 
-       // self.thumbsDownButton.alpha = ( venue.thumbsdown ? 0.25 : 1 )
+        self.thumbsDownButton.alpha = ( venue.thumbsdown ? 0.25 : 1 )
 
-        
-        if let url = NSURL(string: venue.imagePath!) where venue.imagePath != nil {
+        if let url = NSURL(string: venue.thumbImagePath!) where venue.thumbImagePath != nil {
             
             let placeholderImage = UIImage(named: "foodPlaceholder")
             
@@ -65,22 +75,16 @@ class VenueDetailViewController: UIViewController {
                                          imageTransition: UIImageView.ImageTransition.CrossDissolve(0.5),
                                          runImageTransitionIfCached: false,
                                          completion: { _ in })
-        
-            
-            nameLabel.text = venue.name
-            ratingsLabel.text = "🚖\( venue.distance ) away"
-            distanceLabel.text = "⭐️\( venue.rating != nil ? "\(venue.rating!)/10 Ratings" : "N/A" )"
-
-
-            
-            verboseTextHeight.constant = verboseTextView.sizeThatFits(verboseTextView.bounds.size).height
             
         }
 
+        nameLabel.text = venue.name
+        ratingsLabel.text = "🚖\( venue.distance ) away"
+        distanceLabel.text = "⭐️\( venue.rating != nil ? "\(venue.rating!)/10 Ratings" : "N/A" )"
+
+        verboseTextHeight.constant = verboseTextView.sizeThatFits(verboseTextView.bounds.size).height
+
     }
-    
-    
-    
     
     
     

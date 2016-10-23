@@ -135,7 +135,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
         
         cell.titleLabel.text = venue.name
         
-        if let url = NSURL(string: venue.imagePath!) where venue.imagePath != nil {
+        if let url = NSURL(string: venue.thumbImagePath!) where venue.thumbImagePath != nil {
             
             let placeholderImage = UIImage(named: "foodPlaceholder")
             
@@ -221,7 +221,7 @@ extension ViewController: CLLocationManagerDelegate {
         }
 
         if venueItems == nil {
-            FoodFacade.exploreVenues(by: newLocation, complition: { response in
+            FoodFacade.explore(venuesByLocation: newLocation, complition: { response in
                 self.initialViewAdjustment()
                 self.venueItems = response.list
                 self.listingCollectionView.reloadData()
@@ -243,7 +243,7 @@ extension ViewController: CLLocationManagerDelegate {
             print("AuthorizedWhenInUse or AuthorizedAlways")
         default:
             print("No Permissions//Showing Fueled Collective Nearby")
-            FoodFacade.exploreVenues(by: CLLocation(latitude: 40.72428, longitude: -73.9973532), complition: { response in
+            FoodFacade.explore(venuesByLocation: CLLocation(latitude: 40.72428, longitude: -73.9973532), complition: { response in
                 self.initialViewAdjustment()
                 self.venueItems = response.list
                 self.listingCollectionView.reloadData()

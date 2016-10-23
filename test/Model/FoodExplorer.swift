@@ -97,7 +97,7 @@ class FoodExplorer {
                                         }
                                     }
 
-                                    fvResponseList.append(FoodVenue(id: id, name: name, imagePath: imageURL, rating: rating, distance: distance, verbose: venueInfo))
+                                    fvResponseList.append(FoodVenue(id: id, name: name, thumbImagePath: imageURL, rating: rating, distance: distance, verbose: venueInfo))
 
                                 }
                             }
@@ -127,13 +127,52 @@ class FoodExplorer {
     }
     
     
-    
+    func venueDetails(venue: FoodVenue!, complition: (FoodVenueDetailsResponse -> Void)) {
+        
+        
+        let fvResponse = FoodVenueDetailsResponse(type: .unknownError)
+        
+        let foodVenueDetails = FoodVenueDetails(withFoodVenue: venue)
+        
+        foodVenueDetails.localReview = self.reviewOfVenue(venue.id)
+        foodVenueDetails.thumbsdown = self.thumbsDownOfVenue(venue.id)
+
+        
+        if let venueInfo = venue.verbose {
+            
+            if let featuredPhotos = venueInfo["featuredPhotos"] as? [String: AnyObject] {
+                if let imgItems = featuredPhotos["items"] as? [[String: AnyObject]] where imgItems.first != nil {
+                    if let prefix = imgItems.first!["prefix"] as? String , let suffix = imgItems.first!["suffix"] as? String, let height = imgItems.first!["height"] as? String , let width = imgItems.first!["width"] as? String {
+
+                        foodVenueDetails.fullImagePath = prefix + "\(width)x\(height)" + suffix
+                        
+                    }
+                }
+            }
+
+            if let location = venueInfo["location"] as? [String: AnyObject] {
+                if let distanceRaw = location["distance"] as? Int {
+                    //distance = distanceRaw < 1000 ? "\(distanceRaw) m" :  "\(distanceRaw/1000) km"
+                }
+            }
+            
+            
+        }
+
+        
+        
+        //foodVenueDetails.formattedAddress =
+
+
+        fvResponse.details = foodVenueDetails
+        
+        complition(fvResponse)
+
+    }
     
     
     func addReviewToVenue(review: String, venueId: String, complition: (VenueReviewResponse -> Void)) {
-        
-        print(venueId)
-        
+
         CoreStore.beginAsynchronous { (transaction) in
             
             if let fvMO = transaction.fetchOne(From(FoodVenueMO), Where("venueId = %@", venueId)) {
@@ -165,8 +204,6 @@ class FoodExplorer {
     
     
     func addThumbsDownToVenue(thumb: Bool, venueId: String, complition: (VenueReviewResponse -> Void)) {
-
-        print(venueId)
 
         CoreStore.beginAsynchronous { (transaction) in
             
