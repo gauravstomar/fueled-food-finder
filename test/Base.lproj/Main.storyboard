@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="FoodFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -33,7 +33,7 @@
                                     <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FoodCell" id="ygI-4r-T5w" customClass="FoodCell" customModule="test" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FoodCell" id="ygI-4r-T5w" customClass="FoodCell" customModule="FoodFinder" customModuleProvider="target">
                                         <rect key="frame" x="107" y="0.0" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -190,7 +190,7 @@
         <!--Venue Detail Container View Controller-->
         <scene sceneID="vcn-d0-GIN">
             <objects>
-                <viewController id="bdI-yw-qMc" customClass="VenueDetailContainerViewController" customModule="test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bdI-yw-qMc" customClass="VenueDetailContainerViewController" customModule="FoodFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cUb-Zl-aEb"/>
                         <viewControllerLayoutGuide type="bottom" id="ZTu-0h-Jke"/>
@@ -262,7 +262,7 @@
         <!--Venue Detail View Controller-->
         <scene sceneID="epl-dw-lAE">
             <objects>
-                <viewController id="NX7-BI-OUh" customClass="VenueDetailViewController" customModule="test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NX7-BI-OUh" customClass="VenueDetailViewController" customModule="FoodFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yBS-WZ-0QY"/>
                         <viewControllerLayoutGuide type="bottom" id="ATf-1O-x5G"/>
@@ -271,6 +271,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1348"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.10000000000000001" contentMode="scaleAspectFill" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="f0g-D8-8CZ"/>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Wo-7q-GQz">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -354,7 +355,7 @@
                                 <color key="separatorColor" white="1" alpha="0.2481538955479452" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VenueDetailCell" id="88n-0o-zkZ" customClass="VenueDetailCell" customModule="test" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VenueDetailCell" id="88n-0o-zkZ" customClass="VenueDetailCell" customModule="FoodFinder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="56" width="394" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="88n-0o-zkZ" id="HUl-LH-yrh">
@@ -394,9 +395,13 @@
                             <constraint firstItem="LIs-aQ-670" firstAttribute="leading" secondItem="WHl-CC-oKE" secondAttribute="leading" constant="10" id="LeC-6E-nCA"/>
                             <constraint firstAttribute="trailing" secondItem="ZbT-8D-w05" secondAttribute="trailing" constant="10" id="THG-kP-XRW"/>
                             <constraint firstItem="4Wo-7q-GQz" firstAttribute="top" secondItem="yBS-WZ-0QY" secondAttribute="bottom" id="V8c-Xj-e0J"/>
+                            <constraint firstItem="f0g-D8-8CZ" firstAttribute="leading" secondItem="4Wo-7q-GQz" secondAttribute="leading" id="c5A-CN-mvl"/>
                             <constraint firstAttribute="trailing" secondItem="4Wo-7q-GQz" secondAttribute="trailing" id="ggN-EW-kgp"/>
+                            <constraint firstItem="f0g-D8-8CZ" firstAttribute="trailing" secondItem="4Wo-7q-GQz" secondAttribute="trailing" id="ioA-GD-szv"/>
                             <constraint firstItem="4Wo-7q-GQz" firstAttribute="leading" secondItem="WHl-CC-oKE" secondAttribute="leading" id="jdV-37-vrp"/>
                             <constraint firstItem="LIs-aQ-670" firstAttribute="top" secondItem="ZbT-8D-w05" secondAttribute="bottom" id="joM-Yv-Zig"/>
+                            <constraint firstItem="f0g-D8-8CZ" firstAttribute="bottom" secondItem="4Wo-7q-GQz" secondAttribute="bottom" id="s0P-be-a4b"/>
+                            <constraint firstItem="f0g-D8-8CZ" firstAttribute="top" secondItem="4Wo-7q-GQz" secondAttribute="top" id="v0U-pf-RbY"/>
                             <constraint firstItem="ZbT-8D-w05" firstAttribute="leading" secondItem="WHl-CC-oKE" secondAttribute="leading" constant="10" id="wSN-B4-KYI"/>
                         </constraints>
                     </view>
@@ -417,7 +422,7 @@
         <!--Review View Controller-->
         <scene sceneID="ube-CO-zbg">
             <objects>
-                <viewController id="pwC-zl-OUM" customClass="ReviewViewController" customModule="test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pwC-zl-OUM" customClass="ReviewViewController" customModule="FoodFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CUS-OX-j4L"/>
                         <viewControllerLayoutGuide type="bottom" id="YXe-3i-2l4"/>
