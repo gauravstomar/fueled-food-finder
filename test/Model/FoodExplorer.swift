@@ -115,6 +115,7 @@ class FoodExplorer {
                 
                 print(error.localizedDescription)
                 fvResponse.type = .failure
+                fvResponse.errorMessage = error.localizedDescription
                 complition(fvResponse)
                 
             }

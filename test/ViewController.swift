@@ -13,10 +13,10 @@ import AlamofireImage
 class ViewController: UIViewController {
 
     
-    var currentLocation: CLLocation?
-    var locationManager = CLLocationManager()
-
-    var venueItems: [FoodVenue]?
+    private var locationManager = CLLocationManager()
+    private var currentLocation: CLLocation?
+    private var venueItems: [FoodVenue]?
+    
     @IBOutlet weak var headerHeight: NSLayoutConstraint!
 
     @IBOutlet weak var bgImage: UIImageView!
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
     }
     
     
-    func initialViewAdjustment() {
+    private func initialViewAdjustment() {
 
         UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
 
@@ -103,6 +103,36 @@ class ViewController: UIViewController {
             
         }
         
+    }
+    
+    private func searchResturentsForLocation(location: CLLocation) {
+
+        FoodFacade.explore(venuesByLocation: location, complition: { response in
+            
+            switch response.type {
+            case .failure:
+                let alertController = UIAlertController(title: "Error", message: response.errorMessage, preferredStyle: .Alert)
+                
+                let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action:UIAlertAction!) in
+                    self.searchResturentsForLocation(location)
+                }
+                alertController.addAction(retryAction)
+                
+                self.presentViewController(alertController, animated: true, completion:nil)
+                
+            case .success:
+                self.initialViewAdjustment()
+                self.venueItems = response.list
+                self.listingCollectionView.reloadData()
+            
+            default:
+                print("N/A")
+
+            }
+            
+            
+        })
+
     }
 
 }
@@ -225,18 +255,14 @@ extension ViewController: CLLocationManagerDelegate {
         }
 
         if venueItems == nil {
-            FoodFacade.explore(venuesByLocation: newLocation, complition: { response in
-                self.initialViewAdjustment()
-                self.venueItems = response.list
-                self.listingCollectionView.reloadData()
-            })
+            self.searchResturentsForLocation(newLocation)
         }
         currentLocation = newLocation
         locationManager.stopUpdatingLocation()
 
     }
     
-    func locationManagerDidUpdatedStatus(status: CLAuthorizationStatus) {
+    private func locationManagerDidUpdatedStatus(status: CLAuthorizationStatus) {
         
         switch status {
         case .NotDetermined:
@@ -247,11 +273,7 @@ extension ViewController: CLLocationManagerDelegate {
             print("AuthorizedWhenInUse or AuthorizedAlways")
         default:
             print("No Permissions//Showing Fueled Collective Nearby")
-            FoodFacade.explore(venuesByLocation: CLLocation(latitude: 40.72428, longitude: -73.9973532), complition: { response in
-                self.initialViewAdjustment()
-                self.venueItems = response.list
-                self.listingCollectionView.reloadData()
-            })
+            self.searchResturentsForLocation(CLLocation(latitude: 40.72428, longitude: -73.9973532))
         }
 
     }
