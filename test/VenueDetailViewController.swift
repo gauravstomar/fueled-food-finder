@@ -50,22 +50,35 @@ class VenueDetailViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-
-        FoodFacade.detail(ofVenue: container.venueDetail) { (response) in
+        
+        updateVenueDetails()
+        
+    }
+    
+    internal func updateVenueDetails() {
+        
+        if (container.venueDetail != nil) {
             
-            if let venue = response.details {
-                self.updateVenueDetais(venue)
-            } else {
-                return
+            FoodFacade.detail(ofVenue: container.venueDetail) { (response) in
+                
+                if let venueDetail = response.details {
+                    self.container.venueDetail = venueDetail
+                    self.reloadVenueDetaisViews()
+                } else {
+                    return
+                }
+                
             }
-
+            
         }
 
     }
     
     
-    func updateVenueDetais(venue: FoodVenueDetails!) {
+    private func reloadVenueDetaisViews() {
 
+        let venue = container.venueDetail
+        
         self.thumbsDownButton.alpha = ( venue.thumbsdown ? 0.25 : 1 )
 
         if let url = NSURL(string: venue.thumbImagePath!) where venue.thumbImagePath != nil {
@@ -87,7 +100,8 @@ class VenueDetailViewController: UIViewController {
         ratingsLabel.text = "🚖\( venue.distance ) away"
         distanceLabel.text = "⭐️\( venue.rating != nil ? "\(venue.rating!)/10 Ratings" : "N/A" )"
 
-
+        verboseListings = [VenueListingGroup]()
+        
         let localReview = venue.localReview?.characters.count > 0 ? venue.localReview : "N/A"
         verboseListings.append(VenueListingGroup(title: "My Review", rows: [VenueListingItem(title: localReview)]))
         verboseListings.append(VenueListingGroup(title: "Address", rows: [VenueListingItem(title: venue.formattedAddress)]))

@@ -98,7 +98,7 @@ class ViewController: UIViewController {
             
             
             let venueDetailController = segue.destinationViewController as! VenueDetailContainerViewController
-            venueDetailController.venueDetail = venue
+            venueDetailController.venueDetail = FoodVenueDetails(withFoodVenue: venue)
             
             
         }

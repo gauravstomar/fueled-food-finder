@@ -12,13 +12,12 @@ import UIKit
 class VenueDetailContainerViewController: UIViewController, UIScrollViewDelegate {
 
     
-    var venueDetail: FoodVenue!
-    
+    var venueDetail: FoodVenueDetails!
+    var reviewController: ReviewViewController!
+    var detailController: VenueDetailViewController!
+
     @IBOutlet weak var scrollView: UIScrollView!
 
-    
-    
-    
     override func viewDidLoad() {
         
         scrollView.alpha = 0
@@ -69,11 +68,11 @@ class VenueDetailContainerViewController: UIViewController, UIScrollViewDelegate
         switch identifier {
             
         case "venueDetailSegue":
-            let venueDetailController = segue.destinationViewController as! VenueDetailViewController
-            venueDetailController.container = self
+            detailController = segue.destinationViewController as! VenueDetailViewController
+            detailController.container = self
             
         case "addLocalReview":
-            let reviewController = segue.destinationViewController as! ReviewViewController
+            reviewController = segue.destinationViewController as! ReviewViewController
             reviewController.container = self
             
         default:

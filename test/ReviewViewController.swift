@@ -13,8 +13,9 @@ import UIKit
 class ReviewViewController: UIViewController {
 
     
+    var didUpdatedReview: (Void->Void)?
     var container: VenueDetailContainerViewController!
-
+    
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var popupWidth: NSLayoutConstraint!
@@ -37,6 +38,10 @@ class ReviewViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ReviewViewController.keyboardUpdated(_:)), name: UIKeyboardWillHideNotification, object: nil)
 
 
+        if let localReview = container.venueDetail.localReview {
+            textView.text = localReview
+        }
+        
     }
     
     
@@ -85,6 +90,7 @@ class ReviewViewController: UIViewController {
         FoodFacade.addReview(toVenue: container.venueDetail.id, review: textView.text) { (response) in
             
             if response.type == .success {
+                self.container.detailController.updateVenueDetails()
                 self.closeView()
             } else {
                 
