@@ -19,6 +19,7 @@ class VenueDetailViewController: UIViewController {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var thumbsDownButton: UIButton!
+    @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
     
     @IBOutlet weak var verboseTableView: UITableView!
     
@@ -81,18 +82,28 @@ class VenueDetailViewController: UIViewController {
         
         self.thumbsDownButton.alpha = ( venue.thumbsdown ? 0.25 : 1 )
 
-        if let url = NSURL(string: venue.thumbImagePath!) where venue.thumbImagePath != nil {
+        if let url = NSURL(string: venue.fullImagePath!) where venue.fullImagePath != nil {
             
             let placeholderImage = UIImage(named: "foodPlaceholder")
             
+            let h = UIScreen.mainScreen().bounds.height / 2
+
+            if Int(h) < venue.fullImageHight {
+                imageViewHeight.constant = h
+            } else {
+                imageViewHeight.constant = CGFloat(venue.fullImageHight)
+            }
+
             imageView.af_setImageWithURL(url,
                                          placeholderImage: placeholderImage,
                                          filter: nil,
                                          progress: nil,
                                          progressQueue: dispatch_get_main_queue(),
-                                         imageTransition: UIImageView.ImageTransition.CrossDissolve(0.5),
+                                         imageTransition: UIImageView.ImageTransition.FlipFromTop(0.5),
                                          runImageTransitionIfCached: false,
-                                         completion: { _ in })
+                                         completion: { _ in
+                                            self.imageView.contentMode = .ScaleAspectFit
+                                            })
             
         }
 

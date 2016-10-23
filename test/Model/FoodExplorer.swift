@@ -148,6 +148,8 @@ class FoodExplorer {
                         let height = imgItems.first!["height"] as? Int,
                         let width = imgItems.first!["width"] as? Int {
 
+                        foodVenueDetails.fullImageWidth = width
+                        foodVenueDetails.fullImageHight = height
                         foodVenueDetails.fullImagePath = prefix + "\(width)x\(height)" + suffix
                         
                     }

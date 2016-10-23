@@ -41,6 +41,8 @@ public class FoodVenueDetails: FoodVenue {
     var localReview: String?
     var formattedAddress: String?
     var fullImagePath: String?
+    var fullImageWidth: Int
+    var fullImageHight: Int
     var url: String?
     var categories: String?
     var hereNow: String?
@@ -49,6 +51,8 @@ public class FoodVenueDetails: FoodVenue {
 
         self.verified = false
         self.thumbsdown = false
+        self.fullImageWidth = 0
+        self.fullImageHight = 0
         super.init(id: venue.id, name: venue.name, thumbImagePath: venue.thumbImagePath, rating: venue.rating, distance: venue.distance, verbose: venue.verbose)
 
     }
