@@ -18,7 +18,7 @@
 		E17B935B1DBAAB4400B827A9 /* VenueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17B935A1DBAAB4400B827A9 /* VenueDetailViewController.swift */; };
 		E1B15D971DB8802B0049356C /* FoodFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B15D961DB8802B0049356C /* FoodFacade.swift */; };
 		E1B15D991DB880F40049356C /* FoodVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B15D981DB880F40049356C /* FoodVenue.swift */; };
-		E1B15D9C1DB881580049356C /* test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1B15D9A1DB881580049356C /* test.xcdatamodeld */; };
+		E1B15D9C1DB881580049356C /* FoodFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1B15D9A1DB881580049356C /* FoodFinder.xcdatamodeld */; };
 		E1B15D9F1DB8828E0049356C /* FoodVenue+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B15D9D1DB8828E0049356C /* FoodVenue+CoreDataClass.swift */; };
 		E1B15DA41DB884F10049356C /* FoodExplorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B15DA31DB884F10049356C /* FoodExplorer.swift */; };
 		E1B15DAA1DB88B560049356C /* ModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B15DA91DB88B560049356C /* ModelResponse.swift */; };
@@ -29,7 +29,7 @@
 		2DB8EBFBDF20EF722A0EB2B6 /* Pods_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58C99FAD45CC05BABD3B2826 /* Pods-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-test/Pods-test.debug.xcconfig"; sourceTree = "<group>"; };
 		E10BF38B1DBB437D00463CE4 /* VenueDetailContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDetailContainerViewController.swift; sourceTree = "<group>"; };
-		E11FB7AA1DB777A90035D677 /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E11FB7AA1DB777A90035D677 /* FoodFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11FB7AD1DB777A90035D677 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E11FB7AF1DB777A90035D677 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E11FB7B21DB777A90035D677 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 		E17B935A1DBAAB4400B827A9 /* VenueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDetailViewController.swift; sourceTree = "<group>"; };
 		E1B15D961DB8802B0049356C /* FoodFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodFacade.swift; sourceTree = "<group>"; };
 		E1B15D981DB880F40049356C /* FoodVenue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodVenue.swift; sourceTree = "<group>"; };
-		E1B15D9B1DB881580049356C /* test.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = test.xcdatamodel; sourceTree = "<group>"; };
+		E1B15D9B1DB881580049356C /* FoodFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodFinder.xcdatamodel; sourceTree = "<group>"; };
 		E1B15D9D1DB8828E0049356C /* FoodVenue+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FoodVenue+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E1B15DA31DB884F10049356C /* FoodExplorer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodExplorer.swift; sourceTree = "<group>"; };
 		E1B15DA71DB886CB0049356C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -92,7 +92,7 @@
 		E11FB7AB1DB777A90035D677 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E11FB7AA1DB777A90035D677 /* test.app */,
+				E11FB7AA1DB777A90035D677 /* FoodFinder.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,7 +169,7 @@
 		E1B15DA21DB882B80049356C /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				E1B15D9A1DB881580049356C /* test.xcdatamodeld */,
+				E1B15D9A1DB881580049356C /* FoodFinder.xcdatamodeld */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -203,7 +203,7 @@
 			);
 			name = test;
 			productName = test;
-			productReference = E11FB7AA1DB777A90035D677 /* test.app */;
+			productReference = E11FB7AA1DB777A90035D677 /* FoodFinder.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -315,7 +315,7 @@
 				E10BF38C1DBB437D00463CE4 /* VenueDetailContainerViewController.swift in Sources */,
 				E14C7FD81DBB664D003F6C79 /* ReviewViewController.swift in Sources */,
 				E1B15D9F1DB8828E0049356C /* FoodVenue+CoreDataClass.swift in Sources */,
-				E1B15D9C1DB881580049356C /* test.xcdatamodeld in Sources */,
+				E1B15D9C1DB881580049356C /* FoodFinder.xcdatamodeld in Sources */,
 				E1B15DAA1DB88B560049356C /* ModelResponse.swift in Sources */,
 				E1B15D971DB8802B0049356C /* FoodFacade.swift in Sources */,
 			);
@@ -451,7 +451,7 @@
 				INFOPLIST_FILE = test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = swifty.test;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FoodFinder;
 				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
@@ -467,7 +467,7 @@
 				INFOPLIST_FILE = test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = swifty.test;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FoodFinder;
 				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
@@ -496,13 +496,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E1B15D9A1DB881580049356C /* test.xcdatamodeld */ = {
+		E1B15D9A1DB881580049356C /* FoodFinder.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E1B15D9B1DB881580049356C /* test.xcdatamodel */,
+				E1B15D9B1DB881580049356C /* FoodFinder.xcdatamodel */,
 			);
-			currentVersion = E1B15D9B1DB881580049356C /* test.xcdatamodel */;
-			path = test.xcdatamodeld;
+			currentVersion = E1B15D9B1DB881580049356C /* FoodFinder.xcdatamodel */;
+			path = FoodFinder.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
