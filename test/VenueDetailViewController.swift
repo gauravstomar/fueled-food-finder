@@ -99,7 +99,7 @@ class VenueDetailViewController: UIViewController {
                                          filter: nil,
                                          progress: nil,
                                          progressQueue: dispatch_get_main_queue(),
-                                         imageTransition: UIImageView.ImageTransition.FlipFromTop(0.5),
+                                         imageTransition: UIImageView.ImageTransition.CrossDissolve(0.5),
                                          runImageTransitionIfCached: false,
                                          completion: { _ in
                                             self.imageView.contentMode = .ScaleAspectFit

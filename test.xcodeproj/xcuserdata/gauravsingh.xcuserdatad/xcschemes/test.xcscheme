@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E11FB7A91DB777A90035D677"
-               BuildableName = "test.app"
+               BuildableName = "FoodFinder.app"
                BlueprintName = "test"
                ReferencedContainer = "container:test.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E11FB7A91DB777A90035D677"
-            BuildableName = "test.app"
+            BuildableName = "FoodFinder.app"
             BlueprintName = "test"
             ReferencedContainer = "container:test.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E11FB7A91DB777A90035D677"
-            BuildableName = "test.app"
+            BuildableName = "FoodFinder.app"
             BlueprintName = "test"
             ReferencedContainer = "container:test.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E11FB7A91DB777A90035D677"
-            BuildableName = "test.app"
+            BuildableName = "FoodFinder.app"
             BlueprintName = "test"
             ReferencedContainer = "container:test.xcodeproj">
          </BuildableReference>
