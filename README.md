@@ -48,6 +48,7 @@ $ pod install
  - Write Tests
  - Rethink Github Save
  - Add Code Comments
+ - Add UI feedback for tap events and other gestures
 
 ### Demo Video
 
